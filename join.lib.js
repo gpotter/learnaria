@@ -8,6 +8,7 @@ var JoinForm = function () {
     this.fields["email"] = {};
     this.fields["fname"] = {};
     this.fields["lname"] = {};
+	this.fields["organization"] = {};
     this.fields["address"] = {};
     this.fields["city"] = {};
     this.fields["country"] = {};
@@ -37,7 +38,8 @@ var JoinForm = function () {
     this.fields["email"].isEmail = "Email is not valid.";
     this.fields["password"].required = "Password must be 4 or more letters and 2 or more numbers.";
    	this.fields["password"].isPassword = ["Password must be 4 or more letters and 2 or more numbers"];
-    this.fields["state"].isState = "State is not valid.";
+    this.fields["organization"].tooShort = ["Please enter a combination of letters and numbers."];
+	this.fields["state"].isState = "State is not valid.";
     this.fields["zip"].isZip = "ZIP Code is not valid.";
     this.fields["province"].isProvince = "Province is not valid.";
     this.fields["postal"].isPostal = "Postal Code is not valid.";
@@ -173,6 +175,12 @@ JoinForm.prototype.validateField = function (fieldName, text) {
             throw new Error(field.isLname);
         }
     }
+	if (field.isOrganization){
+		if (! this.isOrganization(text)){
+			throw new Error(field.isOrganization);
+		}
+	}
+	
     if(field.isCountry){
              if ( ! this.isCountry(text) ) {
                 throw new Error(field.isCountry);
@@ -249,9 +257,9 @@ JoinForm.prototype.validateForm = function () {
             // Uncomment the following if statement to add an ARIA alert to the error message
             // Only the last alert is read, so limit alerts to the first error
             // so it matches with focus sent to the first message
-            //if(error_count == 1){
-            //	$s(fieldName + "_error").setAttribute("role", "alert");
-            //}
+            if(error_count == 1){
+            	$s(fieldName + "_error").setAttribute("role", "alert");
+            }
             $s(fieldName + "_error").firstChild.nodeValue = error.message;
             if(error_count == 1){
             	$s(fieldName).focus();
@@ -265,7 +273,7 @@ JoinForm.prototype.validateForm = function () {
         $s("feedback").firstChild.nodeValue = this.success;
         $s("feedback").className = "feedback";
        // Uncomment the next line to add an ARIA alert to the feedback message
-       // $s("feedback").setAttribute("role", "alert");
+       $s("feedback").setAttribute("role", "alert");
     }
     return hasErrors;
 }
