@@ -20,9 +20,9 @@
 </div>
 
 <div class="" style="z-index: auto; position: static; top: auto;" id="lrg_topnav" role="navigation">
-    <div style="width: 100%;" id="topnavlistcontainer" aria-label="main navigation tabs">
+    <div style="width: 100%;" id="topnavlistcontainer" role="menu-bar" aria-label="main navigation tabs">
         <a name="main-nav" id="main-nav"></a>
-        <ul style="" id="topnavlist" role="menubar">
+        <ul style="" id="topnavlist">
         <li><a href="index.html" accesskey="1" title="Back to Index Alt+1">Back to Index</a></li>
             <li><a href="landmarks.html" accesskey="2" title="Join Alt+2" class="active" role="button">Join</a></li>
             <li><a href="" class="fake" accesskey="3" title="Photo Gallery Alt+3">Photo Gallery</a></li>
@@ -34,24 +34,24 @@
 </div>
 
 <div class="logoutbar">&nbsp; <input type="text" class="input"><input type="submit" value="search"></div>
-<div class="crumbcontainer">
+<div class="crumbcontainer" role="navigation">
 		<div id="breadcrumbs" tabindex="0" aria-label="breadcrumb links">&nbsp;</div>
 </div>
 <div id="contentwrapper">
     <div id="lrg_content">
 		<div id="leftcolumn">
 		  <a id="menu"></a>
-		     <div id="side-menu" aria-label="left side menu" accesskey="0">
+		     <div id="side-menu" aria-label="left side menu" accesskey="0" role="navigation">
 		        <br/>
                 <h2 class="box"><span>Networking</span></h2>
                 <div class="box" id="menu_Networking">
                     <ul class="social_side_menu">
-                        <li><a href="" class="fake">My Network</a></li>
-                        <li><a href="" class="fake">My Contacts</a></li>
-                        <li><a href="" class="fake">Network Profile</a></li>
-                        <li><a href="" class="fake">Gadgets</a></li>
-                        <li><a href="" class="fake">Network Groups</a></li>
-                        <li><a href="" class="fake">Settings</a></li>
+                        <li><a href="" class="fake" role="button">My Network</a></li>
+                        <li><a href="" class="fake" role="button">My Contacts</a></li>
+                        <li><a href="" class="fake" role="button">Network Profile</a></li>
+                        <li><a href="" class="fake" role="button">Gadgets</a></li>
+                        <li><a href="" class="fake" role="button">Network Groups</a></li>
+                        <li><a href="" class="fake" role="button">Settings</a></li>
                     </ul>
                     <div class="divider"></div>
                 </div>
@@ -120,7 +120,7 @@
 </dd>
 
 <dt>
-    <label for="org">Organization</label>:
+    <label for="org">Organization:</label>
 </dt>
 <dd>
     <input type="text"  class="input" id="org" name="organization" value="" size="30" />
@@ -215,7 +215,7 @@
 		<br style="width:100%;clear:both;" />
 
 	</div>
-<div id="advertising">
+<div id="advertising" role="complementary">
 <h2>Advertising</h2>
 <div>
 <img src="images/rum_cover.jpg" alt="Cover for Ryerson University Magazine. The cover shows a scuba diver underwater exploring a clam.  The center of the clam contains lightbulb (denoting ideas) instead of a pearl." />
