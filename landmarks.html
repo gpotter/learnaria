@@ -33,13 +33,13 @@
     </div> 
 </div>
 
-<div class="logoutbar">&nbsp; <input type="text" class="input" role="search"><input type="submit" value="search"></div>
+<div class="logoutbar">&nbsp; <form role="search"><input type="search" class="input" aria-label="search text"><input type="submit" value="search"></form></div>
 <div class="crumbcontainer" role="navigation">
 		<div id="breadcrumbs" tabindex="0" aria-label="breadcrumb links">&nbsp;</div>
 </div>
 <div id="contentwrapper">
     <div id="lrg_content">
-		<div id="leftcolumn">
+		<div id="leftcolumn" role="navigation">
 		  <a id="menu"></a>
 		     <div id="side-menu" aria-label="left side menu" accesskey="0" role="navigation">
 		        <br/>
@@ -68,7 +68,7 @@
     </div>	<!-- //end of the left column -->	
 
 	<div id="contentcolumn">
-	<div id="message"></div>
+	<div id="message" role="alert"></div>
 	<br style="clear:both;">
 	<a id="top"></a>
 
@@ -93,7 +93,7 @@
     <img src="images/required.gif"  alt="Required Field" />
 </dt>
 <dd>
-    <input type="text" name="password" size="20" id="password" value="" class="input" /><br />
+    <input type="text" name="password" size="20" id="password" value="" class="input" aria-describedby="password_error" /><br />
     <span id="password_error" role="alert">Please input the password.</span>
 </dd>
 <dt>
@@ -101,21 +101,21 @@
 	<img src="images/required.gif" class="img" />
 </dt>
 <dd>    
-    <input type="text" name="email" size="30" id="email" value="" class="input"/><br />
+    <input type="text" name="email" size="30" id="email" value="" class="input" aria-describedby="email_error"/><br />
     <span id="email_error" role="alert">Please input the email.</span>
 </dd>
 <dt>
     <label for="fname">First Name:</label>
 </dt>
 <dd>
-    <input type="text" name="fname" size="20" id="fname" value="" class="input" />
+    <input type="text" name="fname" size="20" id="fname" value="" class="input" aria-describedby="fname_error" />
     <span id="fname_error" role="alert">Please input the first name.</span>
 </dd>
 <dt>
     <label for="lname">Last Name:</label>
 </dt>
 <dd>
-    <input type="text" name="lname" size="20" id="lname" value="" class="input" />  
+    <input type="text" name="lname" size="20" id="lname" value="" class="input" aria-describedby="lname_error" />  
     <span id="lname_error" role="alert">Please input the last name.</span> 
 </dd>
 
@@ -123,21 +123,21 @@
     <label for="org">Organization:</label>
 </dt>
 <dd>
-    <input type="text" class="input" id="org" name="organization" value="" size="30" />
+    <input type="text" name="organization" size="30" id="org" value="" class="input" aria-describedby="org_error" />
     <span id="org_error" role="alert">Please input the organization.</span>
 </dd>
 <dt>
     <label for="address">Street Address:</label> 
 </dt>
 <dd>
-    <textarea  id="address"  class="input" name="address" cols="35" rows="3"></textarea>
+    <textarea  id="address"  class="input" name="address" cols="35" rows="3" aria-describedby="address_error"></textarea>
     <span id="address_error" role="alert">Please input the address.</span>
 </dd>
 <dt>
     <label for="city">City:</label> 
 </dt>
 <dd>
-    <input type="text" id="city" name="city"  class="input" value="" >
+    <input type="text" id="city" name="city"  class="input" value="" aria-describedby="city_error" >
     <span id="city_error" role="alert">Please input the city.</span>
 </dd>
 <dt>
