@@ -9,7 +9,6 @@ var JoinForm = function () {
     this.fields["fname"] = {};
     this.fields["lname"] = {};
     this.fields["address"] = {};
-    this.fields["organization"]={};
     this.fields["city"] = {};
     this.fields["country"] = {};
     this.fields["state"] = {};
