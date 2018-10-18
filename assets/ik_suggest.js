@@ -2,6 +2,7 @@
  
 var pluginName = "ik_suggest",
 	defaults = {
+		'instructions': "As you start typing the application might suggest similar search terms. Use up and down arrow keys to select a suggested search string.",
 		'minLength': 2,
 		'maxResults': 10,
 		'source': []
@@ -80,8 +81,9 @@ var pluginName = "ik_suggest",
 		
 		plugin = event.data.plugin;
 		
-		switch (event.keyCode) {
-		case ik_utils.keys.down: // select next suggestion from list   
+	switch (event.keyCode) {
+		
+	case ik_utils.keys.down: // select next suggestion from list   
                 selected = plugin.list.find('.selected');  
                 if(selected.length) {
                     msg = selected.removeClass('selected').next().addClass('selected').text();
@@ -90,7 +92,8 @@ var pluginName = "ik_suggest",
                 }
                 plugin.notify.text(msg); // add suggestion text to live region to be read by screen reader
                 break;
-            case ik_utils.keys.up: // select previous suggestion from list
+        
+	case ik_utils.keys.up: // select previous suggestion from list
                 selected = plugin.list.find('.selected');
                 if(selected.length) {
                     msg = selected.removeClass('selected').prev().addClass('selected').text();
@@ -98,19 +101,21 @@ var pluginName = "ik_suggest",
                 plugin.notify.text(msg);  // add suggestion text to live region to be read by screen reader    
                 break;
            
-            default: // get suggestions based on user input 
-			case ik_utils.keys.tab:
-			case ik_utils.keys.esc:
+            	default: // get suggestions based on user input 
+	
+	case ik_utils.keys.tab:
+	
+	case ik_utils.keys.esc:
 								
-				plugin.list.empty().hide(); // empty list and hide suggestion box
+			plugin.list.empty().hide(); // empty list and hide suggestion box
 					
 				break;
 			
-			case ik_utils.keys.enter:
-				
-				selected = plugin.list.find('.selected');
-				plugin.element.val( selected.text() ); // set text field value to the selected option
-				plugin.list.empty().hide(); // empty list and hide suggestion box
+	case ik_utils.keys.enter:
+		
+			selected = plugin.list.find('.selected');
+			plugin.element.val( selected.text() ); // set text field value to the selected option
+			plugin.list.empty().hide(); // empty list and hide suggestion box
 				
 				break;
 				
