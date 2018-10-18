@@ -222,8 +222,8 @@ var pluginName = "ik_suggest",
 				if(r.length > 1){
 					this.notify.text('Suggestions are available for this field. Use up and down arrows to select a suggestion and enter key to use it.');
 				}
-		}
 		return r;
+	}
 		
 	};
 
