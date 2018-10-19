@@ -66,7 +66,7 @@
 			$me.attr({
 				'id': id,
 				'role':'region',
-				'aria-hidden':true,
+				//'aria-hidden':true,
 				'tabindex':0
 			});
 		}).hide();
