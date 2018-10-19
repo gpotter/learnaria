@@ -84,7 +84,6 @@
 				.append(this.fill, this.knob)
 				.prependTo(this.element);
 			
-			$('<div/>') // add slider track
 				.attr({
 					'id':id + '_instructions'
 				})
