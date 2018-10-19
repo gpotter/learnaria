@@ -2,6 +2,7 @@
 	
 	var pluginName = 'ik_slider',
 		defaults = {
+			'instructions': 'Use the left arrow key to decrease slider value or the right arrow to increase value. ',
 			'minValue': 0,
 			'maxValue': 100,
 			'nowValue': 0,
@@ -61,9 +62,16 @@
 			
 			plugin.knob = $('<div/>')
 				.attr({
-					'id': id
+					'id': id,
+					'role':'slider',
+					'aria-valuemin':plugin.options.minValue,
+					'aria-valuemax':plugin.options.maxValue,
+					'aria-valuenow':plugin.optoins.minValue,
+					'aria-describedby':id + '_instructions'
 				})
+			
 				.addClass('ik_knob')
+				.on('keydown', {'plugin':plugin}, plugin.onKeyDown)
 				.on('mousedown', {'plugin': plugin}, plugin.onMouseDown)
 				.on('mousemove', {'plugin': plugin}, plugin.onMouseMove)
 				.on('mouseup', {'plugin': plugin}, plugin.onMouseUp)
