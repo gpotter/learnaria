@@ -33,21 +33,31 @@
 		plugin = this;
 		
 		$elem.attr({
-			'id': id
+			'id': id,
+			'role': region
 		}).addClass('ik_accordion');
-			
+		
+		$elem.attr({'aria-multiselectable': !this.options.autoCollapse});
+		
+		this.headers = $elem.children('dt')
+			.attr({'role':'heading'});
+		
 		this.headers = $elem.children('dt').each(function(i, el) {
 			var $me, $btn;
 			
 			$me = $(el);
 			$btn = $('<div/>').attr({
-          'id': id + '_btn_' + i
-        })
+				'id': id + '_btn_' + i,
+				'role':'button',
+				'aria-controls': id + '_panel_' + i,
+				'aria-expanded' : false,
+				'tabindex' : 0
+        		})
         .addClass('button')
-        .html($me.html())
-        .on('click', {'plugin': plugin}, plugin.togglePanel);
-        
-			$me.empty().append($btn); // wrap content of each header in an element with role button
+		.html($me.html())
+			.on('keydown', {'plugin':plugin}, plugin.onKeyDown)
+        		.on('click', {'plugin': plugin}, plugin.togglePanel);
+        		$me.empty().append($btn); // wrap content of each header in an element with role button
 		});
 		
 		this.panels = $elem.children('dd').each(function(i, el) {
