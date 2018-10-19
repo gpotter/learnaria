@@ -37,7 +37,6 @@
 			'role': region
 		}).addClass('ik_accordion');
 		
-		$elem.attr({'aria-multiselectable': !this.options.autoCollapse});
 		
 		this.headers = $elem.children('dt')
 			.attr({'role':'heading'});
