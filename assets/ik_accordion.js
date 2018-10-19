@@ -37,6 +37,7 @@
 			'role': region
 		}).addClass('ik_accordion');
 		
+		$elem.attr({'aria-multiselectable': !this.options.autoCollapse}); // define if more than one panel can be expanded
 		
 		this.headers = $elem.children('dt')
 			.attr({'role':'heading'});
@@ -52,6 +53,7 @@
 				'aria-expanded' : false,
 				'tabindex' : 0
         		})
+			
         .addClass('button')
 		.html($me.html())
 			.on('keydown', {'plugin':plugin}, plugin.onKeyDown)
