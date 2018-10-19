@@ -34,7 +34,7 @@
 		
 		$elem.attr({
 			'id': id,
-			'role': region
+			'role': 'region'
 		}).addClass('ik_accordion');
 		
 		$elem.attr({'aria-multiselectable': !this.options.autoCollapse}); // define if more than one panel can be expanded
