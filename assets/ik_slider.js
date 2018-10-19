@@ -48,7 +48,8 @@
 		
 			plugin.textfield
 				.attr({
-					'readonly': ''
+					'readonly': '',
+					'tabindex':-1
 				})
 				.addClass('ik_value')
 				.wrap('<div></div>'); // wrap initial element in a div
@@ -63,6 +64,7 @@
 			plugin.knob = $('<div/>')
 				.attr({
 					'id': id,
+					'tabindex':0,
 					'role':'slider',
 					'aria-valuemin':plugin.options.minValue,
 					'aria-valuemax':plugin.options.maxValue,
@@ -77,10 +79,22 @@
 				.on('mouseup', {'plugin': plugin}, plugin.onMouseUp)
 				.on('mouseleave', function(){ setTimeout(plugin.onMouseUp, 100, { 'data': {'plugin': plugin} }) });
 				
-			$('<div/>') // add slider track
+			/*ORIG $('<div/>') // add slider track
 				.addClass('ik_track')
 				.append(this.fill, this.knob)
-				.prependTo(this.element);
+				.prependTo(this.element);*/
+			
+				$('<div/>') // add slider track
+					.attr({
+						'id':id + '_instructions'
+					})
+					.text(this.optoins.instructions)
+					.addClass('ik_readersonly')
+					.appendTo(this.element);
+			
+					.addClass('ik_track')
+					.append(this.fill, this.knob)
+					.prependTo(this.element);
 			
 			this.setValue(plugin.options.minValue); // update current value
 		
@@ -97,6 +111,10 @@
 		
 		this.textfield.val(n);
 		this.options.nowValue = n;
+			this.knob
+				.attr({
+				'aria-valuenow':n
+			});
 		this.updateDisplay(n); // update display
 	};
 	
