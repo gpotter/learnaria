@@ -40,7 +40,7 @@
 		$elem.attr({'aria-multiselectable': !this.options.autoCollapse}); // define if more than one panel can be expanded
 		
 		this.headers = $elem.children('dt')
-			.attr({'role':'heading'});
+			.attr({	'role':'heading' });
 		
 		this.headers = $elem.children('dt').each(function(i, el) {
 			var $me, $btn;
