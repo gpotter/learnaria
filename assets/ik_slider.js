@@ -209,6 +209,56 @@
 		
 	};
 	
+	
+/**
+* Keyboard event handler.
+*
+* @param {object} event - Keyboard event.
+* @param {object} event.data - Event data.
+* @param {object} event.data.plugin - Reference to plugin.
+*/
+/**
+* Keyboard event handler.
+*
+* @param {object} event - Keyboard event.
+* @param {object} event.data - Event data.
+* @param {object} event.data.plugin - Reference to plugin.
+*/
+Plugin.prototype.onKeyDown = function (event) {
+   
+    var $elem, plugin, value;
+   
+    $elem = $(this);
+    plugin = event.data.plugin;
+   
+    switch (event.keyCode) {
+       
+        case ik_utils.keys.right:
+           
+            value = parseInt($elem.attr('aria-valuenow')) + plugin.options.step;
+            value = value < plugin.options.maxValue ? value : plugin.options.maxValue;     
+            plugin.setValue(value);
+            break;
+           
+        case ik_utils.keys.end:
+            plugin.setValue(plugin.options.maxValue);
+            break;
+       
+        case ik_utils.keys.left:
+           
+            value = parseInt($elem.attr('aria-valuenow')) - plugin.options.step;
+            value = value > plugin.options.minValue ? value : plugin.options.minValue
+            plugin.setValue(value);
+            break;
+       
+        case ik_utils.keys.home:
+            plugin.setValue(plugin.options.minValue);
+            break;
+           
+    }
+   
+};
+	
 	$.fn[pluginName] = function ( options ) {
 		
 		return this.each(function () {
