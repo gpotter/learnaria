@@ -79,23 +79,19 @@
 				.on('mouseup', {'plugin': plugin}, plugin.onMouseUp)
 				.on('mouseleave', function(){ setTimeout(plugin.onMouseUp, 100, { 'data': {'plugin': plugin} }) });
 				
-			/*ORIG $('<div/>') // add slider track
+			 $('<div/>') // add slider track
 				.addClass('ik_track')
 				.append(this.fill, this.knob)
-				.prependTo(this.element);*/
+				.prependTo(this.element);
 			
-				$('<div/>') // add slider track
-					.attr({
-						'id':id + '_instructions'
-					})
-					.text(this.optoins.instructions)
-					.addClass('ik_readersonly')
-					.appendTo(this.element);
-			
-					.addClass('ik_track')
-					.append(this.fill, this.knob)
-					.prependTo(this.element);
-			
+			$('<div/>') // add slider track
+				.attr({
+					'id':id + '_instructions'
+				})
+				.text(this.optoins.instructions)
+				.addClass('ik_readersonly')
+				.appendTo(this.element);
+
 			this.setValue(plugin.options.minValue); // update current value
 		
 		}
