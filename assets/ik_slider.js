@@ -68,7 +68,7 @@
 					'role':'slider',
 					'aria-valuemin':plugin.options.minValue,
 					'aria-valuemax':plugin.options.maxValue,
-					'aria-valuenow':plugin.optoins.minValue,
+					'aria-valuenow':plugin.options.minValue,
 					'aria-describedby':id + '_instructions'
 				})
 			
