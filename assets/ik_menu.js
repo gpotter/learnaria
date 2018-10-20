@@ -101,7 +101,7 @@
 		} else {
 			
 			plugin.selected
-				.parentsUntil('nav', 'li');
+				.parentsUntil('nav', 'li')
 				.attr({
 					'tabindex':0
 				});
