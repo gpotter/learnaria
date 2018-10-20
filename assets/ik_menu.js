@@ -54,7 +54,7 @@
 		$elem.find('li>ul').attr({
 			'role': 'menu',
 			'aria-hidden': true //hide submenus from screen readers
-		});
+			});
 		
 		plugin.menuitems = $elem.find('li') // setup menuitems
 			.css({ 'list-style': 'none' })
