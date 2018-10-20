@@ -45,9 +45,7 @@
 			.on('mouseenter', {'plugin': plugin}, plugin.stopTimer)
 			.on('mouseleave', {'plugin': plugin}, plugin.startTimer)
 		
-		/* Controls -important
-		  Hide images from screen readers. Notice that the alt text for the images are defined in the [onKeyDown] function but left empty so it is not read in this case. Screen readers will read the figcaptions. 
-		*/
+
 		
 		$controls = $('<div/>')
 			.attr({
@@ -78,157 +76,28 @@
 				$me = $(el);
 				$src = $me.find('img').remove().attr('src');
 				
-				$me.css({
+				/* Controls -important
+		  Hide images from screen readers. Notice that the alt text for the images are defined in the [.on keydown] function but left empty so it is not read in this case. Screen readers will read the figcaptions. 
+				*/
+				$me.attr({
+						'aria-hidden': 'true'
+						})
+				/* Implement visual image via CSS */
+					.css({
 						'background-image': 'url(' + $src + ')'
-					});	
+						});	
 				
 				$('<li/>')
 					.on('click', {'plugin': plugin, 'slide': i}, plugin.gotoSlide)
 					.appendTo($navbar);
-			});
-		
-		plugin.navbuttons = $navbar.children('li');
-		plugin.slides.first().addClass('active');
-		plugin.navbuttons.first().addClass('active');
-		plugin.startTimer({'data':{'plugin': plugin}});
-		
-	};
-	
-	/** 
-	 * Starts carousel timer. 
-	 * Reference to plugin must be passed with event data.
-	 * 
-	 * @param {Object} event - Mouse or focus event.
-	 */
-	Plugin.prototype.startTimer = function (event) {
-		
-		var plugin;
-		
-		$elem = $(this);
-		plugin = event.data.plugin;
-		
-		if(plugin.timer) {
-			clearInterval(plugin.timer);
-			plugin.timer = null;
-		}
-		
-		plugin.timer = setInterval(plugin.gotoSlide, plugin.options.animationSpeed, {'data':{'plugin': plugin, 'slide': 'right'}});
-		
-	};
-	
-	/** 
-	 * Stops carousel timer. 
-	 * 
-	 * @param {object} event - Mouse or focus event.
-	 * @param {object} event.data - Event data.
-	 * @param {object} event.data.plugin - Reference to plugin.
-	 */
-	Plugin.prototype.stopTimer = function (event) {
-		
-		var plugin = event.data.plugin;
-		clearInterval(plugin.timer);
-		plugin.timer = null;
-		
-	};
-	
-	/** 
-	 * Goes to specified slide. 
-	 * 
-	 * @param {object} event - Mouse or focus event.
-	 * @param {object} event.data - Event data.
-	 * @param {object} event.data.plugin - Reference to plugin.
-	 * @param {number} event.data.slide - Index of the slide to show.
-	 */
-	Plugin.prototype.gotoSlide = function (event) {
-		
-		var plugin, n, $elem, $active, $next, index, direction, transevent;
-		
-		plugin = event.data.plugin;
-		n = event.data.slide;
-		$elem = plugin.element;
-		$active = $elem.children('.active');
-		index = $active.index();
-		
-		if (typeof n === 'string') {
-			
-			if(n === 'left') {
-				direction = 'left';
-				n = index == 0 ? plugin.slides.length - 1 : --index;
-			} else {
-				direction = 'right'
-				n = index == plugin.slides.length - 1 ? 0 : ++index;
-			}
-			
-		} else {
-			if (index < n || (index == 0 && n == plugin.slides.length - 1)) {
-				direction = 'left';
-			} else {
-				direction = 'right';
-			}
-		}
-		
-		$next = plugin.slides.eq(n).addClass('next');
-		transevent = ik_utils.getTransitionEventName();
-		$active.addClass(direction).on(transevent, {'next': $next, 'dir': direction}, function(event) {
-			
-			var active, next, dir;
-			
-			active = $(this);
-			next = event.data.next;
-			dir = event.data.dir;
-			
-			active.off( ik_utils.getTransitionEventName() )
-				.removeClass(direction + ' active');
-				
-			next.removeClass('next')
-				.addClass('active');
-			
-		});
-		
-		plugin.navbuttons.removeClass('active').eq(n).addClass('active');
-		
-	}
-	
-	$.fn[pluginName] = function ( options ) {
-		
-		return this.each(function () {
-			
-			if ( !$.data(this, pluginName )) {
-				$.data( this, pluginName,
-				new Plugin( this, options ));
-			}
-			
-		});
-		
-	}
-	
-})( jQuery, window, document );
-			.appendTo($controls);
-		
-		$('<div/>')
-			.addClass('ik_button ik_next')
-			.on('click', {'plugin': plugin, 'slide': 'right'}, plugin.gotoSlide)
-			.appendTo($controls);
-		
-		$navbar = $('<ul/>')
-			.addClass('ik_navbar')
-			.appendTo($controls);
-			
-		plugin.slides = $elem
-			.children('figure')
-			.each(function(i, el) {
-				var $me, $src;
-				
-				$me = $(el);
-				$src = $me.find('img').remove().attr('src');
-				
-				$me.css({
-						'background-image': 'url(' + $src + ')'
-					});	
-				
-				$('<li/>')
-					.on('click', {'plugin': plugin, 'slide': i}, plugin.gotoSlide)
-					.appendTo($navbar);
+				 $('<div/>') // add instructions for screen reader users
+					.attr({
+						'id': id + '_instructions',
+						'aria-hidden': 'true'
+					})
+				.text(this.options.instructions)
+				.addClass('ik_readersonly')
+				.appendTo($elem);
 			});
 		
 		plugin.navbuttons = $navbar.children('li');
