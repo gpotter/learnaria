@@ -129,6 +129,10 @@
 		
 		plugin.timer = setInterval(plugin.gotoSlide, plugin.options.animationSpeed, {'data':{'plugin': plugin, 'slide': 'right'}});
 		
+		 if (event.type === 'focusout') {
+				plugin.element.removeAttr('aria-live');
+			}
+		
 	};
 	
 	/** 
@@ -143,6 +147,11 @@
 		var plugin = event.data.plugin;
 		clearInterval(plugin.timer);
 		plugin.timer = null;
+		
+		if(event.type === 'focusin') {
+			plugin.element.attr({'aria-live': 'polite'});
+		}
+		
 		
 	};
 	
@@ -192,12 +201,19 @@
 			next = event.data.next;
 			dir = event.data.dir;
 			
-			active.off( ik_utils.getTransitionEventName() )
+			active
+				.attr({
+					'aria-hidden':'true'
+				})
+				.off( ik_utils.getTransitionEventName() )
 				.removeClass(direction + ' active');
 				
-			next.removeClass('next')
+			next
+				.attr({
+					'aria-hidden':'false'
+				})
+				.removeClass('next')
 				.addClass('active');
-			
 		});
 		
 		plugin.navbuttons.removeClass('active').eq(n).addClass('active');
