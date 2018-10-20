@@ -67,7 +67,9 @@
 		$navbar = $('<ul/>')
 			.addClass('ik_navbar')
 			.appendTo($controls);
-			
+							/* Controls -important
+		  Hide images from screen readers. Notice that the alt text for the images are defined in the [.on keydown] function but left empty so it is not read in this case. Screen readers will read the figcaptions. 
+				*/
 		plugin.slides = $elem
 			.children('figure')
 			.each(function(i, el) {
@@ -75,22 +77,18 @@
 				
 				$me = $(el);
 				$src = $me.find('img').remove().attr('src');
-				
-				/* Controls -important
-		  Hide images from screen readers. Notice that the alt text for the images are defined in the [.on keydown] function but left empty so it is not read in this case. Screen readers will read the figcaptions. 
-				*/
 				$me.attr({
 						'aria-hidden': 'true'
 						})
-				/* Implement visual image via CSS */
 					.css({
 						'background-image': 'url(' + $src + ')'
 						});	
-				
 				$('<li/>')
 					.on('click', {'plugin': plugin, 'slide': i}, plugin.gotoSlide)
 					.appendTo($navbar);
-				 $('<div/>') // add instructions for screen reader users
+				 
+			});
+		$('<div/>') // add instructions for screen reader users
 					.attr({
 						'id': id + '_instructions',
 						'aria-hidden': 'true'
@@ -98,8 +96,8 @@
 				.text(this.options.instructions)
 				.addClass('ik_readersonly')
 				.appendTo($elem);
-			});
-		
+				
+				
 		plugin.navbuttons = $navbar.children('li');
 		plugin.slides.first().addClass('active');
 		plugin.navbuttons.first().addClass('active');
