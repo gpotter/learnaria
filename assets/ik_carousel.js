@@ -220,6 +220,33 @@
 		
 	}
 	
+		/**
+		* Handles keydown event on the next/prev links.
+		*
+		* @param {Object} event - Keyboard event.
+		* @param {object} event.data - Event data.
+		* @param {object} event.data.plugin - Reference to plugin.
+		*/
+		Plugin.prototype.onKeyDown = function (event) {
+			   
+			var plugin = event.data.plugin;
+			   
+			switch (event.keyCode) {
+				   
+				case ik_utils.keys.left:
+					event.data = {'plugin': plugin, 'slide': 'left'};
+					plugin.gotoSlide(event);
+					break;
+				case ik_utils.keys.right:
+					event.data = {'plugin': plugin, 'slide': 'right'};
+					plugin.gotoSlide(event);
+					break;
+				case ik_utils.keys.esc:
+					plugin.element.blur();
+					break;
+				}
+			}
+	
 	$.fn[pluginName] = function ( options ) {
 		
 		return this.each(function () {
