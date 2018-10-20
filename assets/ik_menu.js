@@ -39,8 +39,7 @@
 			.addClass('ik_readersonly') // hide element from visual display
 			.attr({
 				'id': id + '_instructions',
-				'aria-hidden':'true' // hide element so it won't be read twice by screen reader. 
-				
+				'aria-hidden':'true' // hide element so it won't be read twice by screen reader
 			})
 			.appendTo(this.element);
 			
@@ -113,8 +112,12 @@
 			.on('mouseenter', plugin.showSubmenu)
 			.on('mouseleave', plugin.hideSubmenu)
 			.on('click', {'plugin': plugin}, plugin.activateMenuItem)
-			.on('keydown', {'plugin': plugin}, plugin.onKeyDown);
-		$(window).on('resize', function(){ plugin.collapseAll(plugin); } ); // collapse all submenues when window is resized
+			.on("keydown", {'plugin': plugin}, plugin.onKeyDown);
+		
+		
+		$(window).on('resize', function(){ 
+			plugin.collapseAll(plugin); 
+			}); // collapse all submenues when window is resized
 		
 	};
 	
