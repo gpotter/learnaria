@@ -101,7 +101,7 @@
 		} else {
 			
 			plugin.selected
-				.parentsUntil('nav', 'li');
+				.parentsUntil('nav', 'li')
 				.attr({
 					'tabindex':0
 				});
@@ -111,7 +111,7 @@
 		plugin.menuitems // setup event handlers
 			.on('mouseenter', plugin.showSubmenu)
 			.on('mouseleave', plugin.hideSubmenu)
-			.on('click', {'plugin': plugin}, plugin.activateMenuItem);
+			.on('click', {'plugin': plugin}, plugin.activateMenuItem)
 			.on("keydown", {'plugin': plugin}, plugin.onKeyDown);
 		
 		
