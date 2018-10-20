@@ -70,14 +70,7 @@
 							/* Controls -important
 		  Hide images from screen readers. Notice that the alt text for the images are defined in the [.on keydown] function but left empty so it is not read in this case. Screen readers will read the figcaptions. 
 				*/
-				$('<div/>') // add instructions for screen reader users
-					.attr({
-						'id': id + '_instructions',
-						'aria-hidden': 'true'
-					})
-				.text(this.options.instructions)
-				.addClass('ik_readersonly')
-				.appendTo($elem);
+
 				
 		plugin.slides = $elem
 			.children('figure')
@@ -98,7 +91,14 @@
 				 
 			});
 
-				
+			$('<div/>') // add instructions for screen reader users
+				.attr({
+					'id': id + '_instructions',
+					'aria-hidden': 'true'
+					})
+				.text(this.options.instructions)
+				.addClass('ik_readersonly')
+				.appendTo($elem);		
 				
 		plugin.navbuttons = $navbar.children('li');
 		plugin.slides.first().addClass('active');
