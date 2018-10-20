@@ -2,7 +2,7 @@
 	
 	var pluginName = 'ik_carousel',
 		defaults = { // default settings
-			'instructions': 'Carousel widget.  Use the left and right arrows keys to navigate between slides.'
+			'instructions': 'Carousel widget.  Use the left and right arrows keys to navigate between slides.',
 			'animationSpeed' : 3000
 		};
 	 
@@ -63,6 +63,15 @@
 			.addClass('ik_button ik_next')
 			.on('click', {'plugin': plugin, 'slide': 'right'}, plugin.gotoSlide)
 			.appendTo($controls);
+				$('<div/>') // add instructions for screen reader users
+			.attr({
+				'id': id + '_instructions',
+				'aria-hidden': 'true'
+				})
+			.text(this.options.instructions)
+			.addClass('ik_readersonly')
+			.appendTo($elem);
+		
 		
 		$navbar = $('<ul/>')
 			.addClass('ik_navbar')
@@ -91,14 +100,7 @@
 				 
 			});
 
-			$('<div/>') // add instructions for screen reader users
-				.attr({
-					'id': id + '_instructions',
-					'aria-hidden': 'true'
-					})
-				.text(this.options.instructions)
-				.addClass('ik_readersonly')
-				.appendTo($elem);		
+		
 				
 		plugin.navbuttons = $navbar.children('li');
 		plugin.slides.first().addClass('active');
