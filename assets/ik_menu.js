@@ -168,7 +168,7 @@
 			});
 			$submenu.children('li').attr({'tabindex': -1});
 		}
-	}
+	};
 	
 	/** 
 	 * Collapses all submenus. Whem element is specified collapses all sumbenus inside that element.
