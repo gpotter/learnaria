@@ -53,13 +53,13 @@
                         <li><a href="" class="fake" role="menu-item">Network Groups</a></li>
                         <li><a href="" class="fake" role="menu-item">Settings</a></li>
                     </ul>
-                    <div class="divider"></div>
+                    <div class="divider" aria-hidden="true"></div>
                 </div>
 			<br/>
                 <h2 class="box"><span>People Online</span></h2>
                 <div class="box" id="menu_UsersOnline">
-                    <ul style="padding: 0px; list-style: none;">
-                        <li style="padding: 3px 0px;" id="mylogin">No one logged in</li>
+                    <ul style="padding: 0px; list-style: none;" role="list">
+                        <li style="padding: 3px 0px;" id="mylogin" role="listitem">No one logged in</li>
                     </ul>
                 </div>
 			<br/>
@@ -67,7 +67,7 @@
 		</div>
     </div>	<!-- //end of the left column -->	
 
-	<div id="contentcolumn">
+	<div id="contentcolumn" >
 	<div id="message"></div>
 	<br style="clear:both;">
 	<a id="top"></a>
@@ -119,13 +119,13 @@
     <span id="lname_error" role="alert">Please input the last name.</span> 
 </dd>
 
-<dt>
+<!--<dt>
     <label for="org">Organization:</label>
 </dt>
 <dd>
     <input type="text" name="organization" size="30" id="org" value="" class="input" aria-describedby="org_error" />
     <span id="org_error" role="alert">Please input the organization.</span>
-</dd>
+</dd>-->
 
 <dt>
     <label for="address">Street Address:</label> 
