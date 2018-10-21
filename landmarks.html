@@ -74,6 +74,195 @@
 
 <div class="profile" role="main">
 <h2 id="JoinForm" aria-hidden="true">Join our community</h2>
+<div id="feedback" role="region" aria-live="polite">&nbsp;</div>
+<form id="join_form" role="form">
+<dl>
+<dt>
+<img src="images/required.gif" height="14" width="14" alt="Required Field" /> denotes required fields.<br />
+</dt>
+<dd>
+</dd>
+<dt>
+<label for="username">Username:</label><img src="images/required.gif"  alt="Required Field" class="img" />
+</dt>
+<dd><input id="username" class="input" type="text" value="" maxlength="30" size="20" name="username"  aria-required="true" aria-describedby="username_error"><br />
+        <span id="username_error" role="alert">Please input the unique username.</span><br />
+</dd>
+<dt>
+    <label for="password">Password:</label>
+    <img src="images/required.gif"  alt="Required Field" />
+</dt>
+<dd>
+    <input type="text" name="password" size="20" id="password" value="" class="input" aria-describedby="password_error" /><br />
+    <span id="password_error" role="alert">Please input the password.</span>
+</dd>
+<dt>
+    <label for="email">Email:</label>
+	<img src="images/required.gif" class="img" />
+</dt>
+<dd>    
+    <input type="text" name="email" size="30" id="email" value="" class="input" aria-describedby="email_error"/><br />
+    <span id="email_error" role="alert">Please input the email.</span>
+</dd>
+<dt>
+    <label for="fname">First Name:</label>
+</dt>
+<dd>
+    <input type="text" name="fname" size="20" id="fname" value="" class="input" aria-describedby="fname_error" />
+    <span id="fname_error" role="alert">Please input the first name.</span>
+</dd>
+<dt>
+    <label for="lname">Last Name:</label>
+</dt>
+<dd>
+    <input type="text" name="lname" size="20" id="lname" value="" class="input" aria-describedby="lname_error" />  
+    <span id="lname_error" role="alert">Please input the last name.</span> 
+</dd>
+
+<!--<dt>
+    <label for="org">Organization:</label>
+</dt>
+<dd>
+    <input type="text" name="organization" size="30" id="org" value="" class="input" aria-describedby="org_error" />
+    <span id="org_error" role="alert">Please input the organization.</span>
+</dd>-->
+
+<dt>
+    <label for="address">Street Address:</label> 
+</dt>
+<dd>
+    <textarea  id="address"  class="input" name="address" cols="35" rows="3" aria-describedby="address_error"></textarea>
+    <span id="address_error" role="alert">Please input the address.</span>
+</dd>
+<dt>
+    <label for="city">City:</label> 
+</dt>
+<dd>
+    <input type="text" id="city" name="city"  class="input" value="" aria-describedby="city_error" >
+    <span id="city_error" role="alert">Please input the city.</span>
+</dd>
+<dt>
+    <label for="country">Country:</label>
+</dt>
+<dd>
+    <select name="country" id="country" aria-describedby="country_error">
+		<option value=""></option>
+        <option value="ca">Canada</option>
+        <option value="usa">USA</option>
+    </select>
+    <span id="country_error" role="alert">Please input country.</span>
+</dd>
+
+<dt>
+    <dt class="state_block">
+                <label for="state">State:</label>
+    </dt>
+    <dd class="state_block">
+                <input type="text" name="state" id="state" maxlength="2" class="input" aria-describedby="state_error" />
+                <span id="state_error" role="alert">Please input the zip code.</span>
+    </dd>
+     <dt class="state_block">   
+     <label for="zip">ZIP Code:</label>
+     </dt>
+     <dd class="state_block">
+                    <input type="text" name="zip" id="zip"  class="input" aria-describedby="zip_error" />
+                    <span id="zip_error" role="alert">Please input the zip code.</span><br />
+    </dd>
+
+    <dt class="prov_block">
+    <label for="province">Province:</label>
+    </dt>
+    <dd class="prov_block">
+                    <select name="province" id="province" class="input" aria-describedby="providence_error">
+						<option value=""></option>
+                        <option value="BC">BC</option>
+                        <option value="AB">AB</option>
+                        <option value="SK">SK</option>
+                        <option value="MB">MB</option>
+                        <option value="ON">ON</option>
+                        <option value="QC">QC</option>
+                        <option value="PE">PE</option>
+                        <option value="BC">NS</option>
+                        <option value="NB">NB</option>
+                        <option value="NF">NFLD</option>
+                        <option value="YK">Yukon</option>
+                        <option value="NV">Nunavut</option>
+                        <option value="NW">NWT</option>
+                    </select>
+                    <span id="province_error" role="alert">Please input the province.</span>
+    </dd>
+    <dt class="prov_block">
+                <label for="postal">Postal Code:</label>
+    </dt>
+    <dd class="prov_block">
+                    <input type="text" name="postal" id="postal" class="input" aria-describedby="postal_error" />
+                    <span id="postal_error" role="alert">Please input the postal code.</span><br />
+    </dd>
+
+<dt>
+    <label for="tele">Telephone:</label>
+</dt>
+<dd>
+    <input type="text" id="tele" name="telephone"  class="input" value="" aria-describedby="tele_error">
+    <span id="tele_error" role="alert">Please input the telephone number using the format 999-999-9999 including dashes.</span>
+</dd>
+</dl>
+<br  style="clear:both;"/>
+<div>
+    <input type="button" id="join" value="Join" role="button" /> &nbsp;
+    <input type="button" id="reset_form" value="Reset" role="button" /><br />
+</div>
+</form>
+<br  style="clear:both;"/>
+
+		<br style="width:100%;clear:both;" />
+
+	</div>
+<div id="advertising" role="complementary">
+<h2>Advertising</h2>
+<div>
+<img src="images/rum_cover.jpg" alt="Cover for Ryerson University Magazine. The cover shows a scuba diver underwater exploring a clam.  The center of the clam contains lightbulb (denoting ideas) instead of a pearl." />
+<br style="clear:both;"/>
+</div>
+</div>
+</div>
+
+<p><br><br>&nbsp;</p>
+</div> <!-- end page wrapper --> 
+<p><br><br>&nbsp;</p>
+</div>
+<div id="footer" role="contentinfo"> Copyright &copy; <a href="" class="fake">Chang School.</a>
+</div>
+
+
+</body>
+</html>
+                        <li><a href="" class="fake" role="menu-item">Network Profile</a></li>
+                        <li><a href="" class="fake" role="menu-item">Gadgets</a></li>
+                        <li><a href="" class="fake" role="menu-item">Network Groups</a></li>
+                        <li><a href="" class="fake" role="menu-item">Settings</a></li>
+                    </ul>
+                    <div class="divider" aria-hidden="true"></div>
+                </div>
+			<br/>
+                <h2 class="box"><span>People Online</span></h2>
+                <div class="box" id="menu_UsersOnline">
+                    <ul style="padding: 0px; list-style: none;" role="list">
+                        <li style="padding: 3px 0px;" id="mylogin" role="listitem">No one logged in</li>
+                    </ul>
+                </div>
+			<br/>
+		    </div>
+		</div>
+    </div>	<!-- //end of the left column -->	
+
+	<div id="contentcolumn" >
+	<div id="message"></div>
+	<br style="clear:both;">
+	<a id="top"></a>
+
+<div class="profile" role="main">
+<h2 id="JoinForm" aria-hidden="true">Join our community</h2>
 <div id="feedback">&nbsp;</div>
 <form id="join_form" role="form">
 <dl>
