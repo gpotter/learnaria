@@ -8,6 +8,7 @@ var JoinForm = function () {
     this.fields["email"] = {};
     this.fields["fname"] = {};
     this.fields["lname"] = {};
+	this.fields["organization"] = {};
     this.fields["address"] = {};
     this.fields["city"] = {};
     this.fields["country"] = {};
@@ -33,6 +34,7 @@ var JoinForm = function () {
     this.fields["username"].isUsername = "Username must contain numbers and letters";
     this.fields["fname"].isName = "First name can only contain letters"
     this.fields["lname"].isName = "Last name can only contain letters"
+	this.fields["organization"].required = "Enter an organization name.";
     this.fields["email"].required = "Email is required.";
     this.fields["email"].isEmail = "Email is not valid.";
     this.fields["password"].required = "Password must be 4 or more letters and 2 or more numbers.";
@@ -55,6 +57,7 @@ var JoinForm = function () {
     this.fields["email"] = {};
     this.fields["fname"] = {};
     this.fields["lname"] = {};
+	this.fields["organization"] = {};
     this.fields["address"] = {};
     this.fields["city"] = {};
     this.fields["country"] = {};
@@ -217,6 +220,13 @@ JoinForm.prototype.validateField = function (fieldName, text) {
             throw new Error(field.isLname);
         }
     }
+	if (field.isOrganization){
+		if (! this.isLname(text)){
+			throw new Error(field.isOrganization);
+		}
+		
+	}
+	
     if(field.isCountry){
              if ( ! this.isCountry(text) ) {
                 throw new Error(field.isCountry);
@@ -324,6 +334,7 @@ var JoinForm = function () {
     this.fields["email"] = {};
     this.fields["fname"] = {};
     this.fields["lname"] = {};
+	this.fields["organization"] = {};
     this.fields["address"] = {};
     this.fields["city"] = {};
     this.fields["country"] = {};
@@ -1074,4 +1085,3 @@ JoinForm.prototype.validateForm = function () {
     }
     return hasErrors;
 }
-
