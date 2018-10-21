@@ -26,7 +26,7 @@ var pluginName = "ik_sortable",
 			'id': id,
 			'role': 'list',
 			'tabindex': 0,
-			'aria-labelby': id + '_instructions'
+			'aria-labelledby': id + '_instructions'
 		})
 		.wrap('<div class="ik_sortable"></div>').before(plugin.temp);
 			
