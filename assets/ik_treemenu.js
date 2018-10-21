@@ -228,6 +228,75 @@
 		plugin.selectItem($me, plugin);
 	};
 	
+	
+	/**
+     * Handles keydown event on header button.
+     *
+     * @param {Object} event - Event object.
+     * @param {object} event.data - Event data.
+     * @param {object} event.data.plugin - Reference to plugin.
+     */
+   
+    Plugin.prototype.onKeyDown = function (event) {
+       
+        var plugin, $elem, $me, $visibleitems, curindex, newindex;
+       
+        plugin = event.data.plugin;
+        $elem = plugin.element;
+        $me = $(event.currentTarget);
+       
+        switch (event.keyCode) {
+            case ik_utils.keys.down:
+                event.preventDefault();
+                event.stopPropagation();
+               
+                $visibleitems = $elem.find('[role=treeitem]:visible');
+                newindex = $visibleitems.index($me) + 1;
+               
+                if (newindex < $visibleitems.length) {
+                    plugin.selectItem( $($visibleitems[newindex]), plugin );
+                }
+                break;
+            case ik_utils.keys.up:
+                event.preventDefault();
+                event.stopPropagation();
+               
+                $visibleitems = $elem.find('[role=treeitem]:visible');
+                newindex = $visibleitems.index($me) - 1;
+               
+                if (newindex > -1) {
+                    plugin.selectItem( $($visibleitems[newindex]), plugin );
+                }
+                break;
+            case ik_utils.keys.right:
+                event.preventDefault();
+                event.stopPropagation();
+               
+                if($me.attr('aria-expanded') == 'false') {
+                    plugin.toggleSubmenu($me);
+                }
+                break;
+            case ik_utils.keys.left:
+                event.preventDefault();
+                event.stopPropagation();
+               
+                if($me.attr('aria-expanded') == 'true') {
+                    plugin.toggleSubmenu($me);
+                }
+                break;
+            case ik_utils.keys.enter:
+            case ik_utils.keys.space:
+                event.preventDefault();
+                event.stopPropagation();
+               
+                plugin.toggleSubmenu($me);
+               
+                return false;
+        }
+       
+    }
+	
+	
 	$.fn[pluginName] = function ( options ) {
 		
 		return this.each(function () {
