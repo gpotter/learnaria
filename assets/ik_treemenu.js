@@ -142,7 +142,7 @@
 			.removeClass('focused');
 		
 		$elem.find('li').attr({
-			'tabindex": -1
+			'tabindex': -1
 			})
 		
 		$item.attr({  //select specified treeitem
