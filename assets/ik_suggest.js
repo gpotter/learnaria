@@ -34,7 +34,7 @@ var pluginName = "ik_suggest",
 		plugin = this;
 		
 		plugin.notify = $('<div/>') // add hidden live region to be used by screen readers
-			.addClass('ik_readersonly');
+			.addClass('ik_readersonly')
 		    .attr({
         'role': 'region',
         'aria-live': 'polite'
