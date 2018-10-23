@@ -48,10 +48,10 @@
 			$me = $(el);
 			$btn = $('<div/>').attr({
 				'id': id + '_btn_' + i,
-				'role':'button',
-				'aria-controls': id + '_panel_' + i,
-				'aria-expanded' : false,
-				'tabindex' : 0
+				'role': 'button',
+				'aria-controls': id + '_panel_' + i, // associate button with corresponding panel
+				'aria-expanded': false, // toggle expanded state
+				'tabindex': 0 //add keyboard focus
         		})
 			
         .addClass('button')
