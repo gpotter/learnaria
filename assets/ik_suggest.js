@@ -6,7 +6,6 @@ var pluginName = "ik_suggest",
 		'minLength': 2,
 		'maxResults': 10,
 		'source': []
-		
 	};
 	
 	/**
@@ -222,9 +221,9 @@ var pluginName = "ik_suggest",
 				}
 			}
 		}
-if (r.length > 1) { // add instructions to hidden live area
-        this.notify.text('Suggestions are available for this field. Use up and down arrows to select a suggestion and enter key to use it.');
-    }
+		if (r.length > 1) { // add instructions to hidden live area
+				this.notify.text('Suggestions are available for this field. Use up and down arrows to select a suggestion and enter key to use it.');
+		}
 		return r;
 		
 	};
