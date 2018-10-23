@@ -39,7 +39,7 @@ var pluginName = "ik_suggest",
 		    .attr({
         'role': 'region',
         'aria-live': 'polite'
-    })
+    			});
 		
 		$elem = plugin.element
 			.attr({
